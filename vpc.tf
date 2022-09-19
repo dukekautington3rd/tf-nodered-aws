@@ -5,6 +5,7 @@ resource "aws_vpc" "utility" {
 
   tags = {
     Name      = "ec2-vpc-${random_string.suffix.id}"
+    yor_trace = "8d2b29a9-6d50-4684-a9c7-f8838adae685"
   }
 }
 
@@ -15,6 +16,7 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name      = "Public Subnet"
+    yor_trace = "09693517-da5e-4e47-aab4-49eacf096e85"
   }
 }
 
@@ -23,6 +25,7 @@ resource "aws_internet_gateway" "utility_igw" {
 
   tags = {
     Name      = "utility VPC - Internet Gateway"
+    yor_trace = "6a7c7c92-30b1-4354-9017-b2b73052d36f"
   }
 }
 
@@ -36,6 +39,7 @@ resource "aws_route_table" "utility_us_east_1a_public" {
 
   tags = {
     Name      = "Public Subnet Route Table"
+    yor_trace = "6eefbe9d-3a50-4f91-a331-5097c5eb7dfc"
   }
 }
 
@@ -65,6 +69,7 @@ resource "aws_security_group" "allow_ssh" {
 
   tags = {
     Name      = "allow_ssh_sg"
+    yor_trace = "1943fc9f-40dc-4478-bfb1-0abc1f980c69"
   }
 }
 
@@ -89,6 +94,7 @@ resource "aws_security_group" "allow_http" {
 
   tags = {
     Name      = "allow_http_sg"
+    yor_trace = "ab147666-e9b0-4327-8888-72f8979f4c67"
   }
 }
 
@@ -106,6 +112,7 @@ resource "aws_security_group" "allow_outbound" {
 
   tags = {
     Name      = "allow_outbound_sg"
+    yor_trace = "fca56148-33c6-470b-a64a-83b48938a7f4"
   }
 }
 
@@ -125,5 +132,6 @@ resource "aws_default_security_group" "default" {
   }
 
   tags = {
+    yor_trace = "e3f754b6-3754-4c3e-894b-4a039b601869"
   }
 }
