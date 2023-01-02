@@ -35,8 +35,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - id: iac-scan
-        name: Run Scan on CFT files in the repository
+        name: Run Scan on IAC files in the repository
         uses: bridgecrewio/bridgecrew-action@master
+        env:
+          PRISMA_API_URL: https://api4.prismacloud.io
         with:
           api-key: ${{ secrets.PCC_USER }}::${{ secrets.PCC_PASS }}
           #directory: "example/examplea"
