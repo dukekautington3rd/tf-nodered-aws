@@ -12,8 +12,6 @@
 
 name: Prisma Cloud IaC Scan
 
-name: Main CI
-
 on:
   push:
     branches: [ "main" ]
