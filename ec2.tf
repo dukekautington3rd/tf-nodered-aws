@@ -37,6 +37,7 @@ resource "aws_instance" "k8s_worker_1" {
     http_endpoint = "enabled"
     http_tokens   = "required"
   }
+  monitoring = true
 }
 
 output "instances" {
