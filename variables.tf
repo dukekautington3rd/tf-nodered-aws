@@ -27,6 +27,10 @@ variable "region" {
   description = "AWS region to launch servers"
   type = string
 }
+variable "az" {
+  description = "AWS availability zone to launch servers"
+  type = string
+}
 
 variable "admin_ip" {
   description = "admin IP addresses in CIDR format"
