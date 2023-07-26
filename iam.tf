@@ -18,6 +18,8 @@ resource "aws_iam_role" "another_flow_role" {
 EOF
   tags = {
     yor_trace = "6ba2be4e-676d-4884-a250-7abc15392aa8"
+    git_org   = "dukekautington3rd"
+    git_repo  = "tf-nodered-aws"
   }
 }
 
@@ -60,6 +62,8 @@ resource "aws_iam_role" "ssm_role_tf" {
 EOF
   tags = {
     yor_trace = "b043b8a0-c191-471b-a15a-5b4e404d294d"
+    git_org   = "dukekautington3rd"
+    git_repo  = "tf-nodered-aws"
   }
 }
 
@@ -73,5 +77,7 @@ resource "aws_iam_instance_profile" "ssm_mgr_policy" {
   role = aws_iam_role.ssm_role_tf.name
   tags = {
     yor_trace = "1d93317f-106a-4972-97ca-f418f80c1fc4"
+    git_org   = "dukekautington3rd"
+    git_repo  = "tf-nodered-aws"
   }
 }

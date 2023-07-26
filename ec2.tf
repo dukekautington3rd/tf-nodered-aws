@@ -11,6 +11,8 @@ resource "aws_instance" "k8s_master" {
     Name      = "k8s master"
     Defender  = "false"
     yor_trace = "d5dc64de-f608-429c-b3b1-9b86fde8d0df"
+    git_org   = "dukekautington3rd"
+    git_repo  = "tf-nodered-aws"
   }
   user_data = "${file("init.sh")}"
 }
@@ -27,8 +29,10 @@ resource "aws_instance" "k8s_worker_1" {
     Name      = "k8s worker"
     Defender  = "false"
     yor_trace = "98cda432-d859-4421-a755-38a8edc916b6"
+    git_org   = "dukekautington3rd"
+    git_repo  = "tf-nodered-aws"
   }
-  user_data = "${file("init.sh")}" 
+  user_data = "${file("init.sh")}"
 
   root_block_device {
     encrypted = true
