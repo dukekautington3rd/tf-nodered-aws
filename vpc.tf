@@ -48,17 +48,29 @@ resource "aws_route_table_association" "utility_us_east_1a_public" {
   route_table_id = aws_route_table.utility_us_east_1a_public.id
 }
 
+data "external" "resolved_ip" {
+  program = ["./lookup.sh", "one.kaut.io"]
+}
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh_sg"
   description = "Allow SSH inbound connections"
   vpc_id      = aws_vpc.utility.id
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = var.admin_ip
+    dynamic "ingress" {
+    for_each = [data.external.resolved_ip.result]
+      content {
+        from_port   = 22
+        to_port     = 22
+        protocol    = "tcp"
+        cidr_blocks = [ingress.value["ip_address"]]
+    }
   }
+  # ingress {
+  #   from_port   = 22
+  #   to_port     = 22
+  #   protocol    = "tcp"
+  #   cidr_blocks = var.admin_ip
+  # }
 
   egress {
     from_port   = 0
